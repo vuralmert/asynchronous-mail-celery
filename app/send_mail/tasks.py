@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from celery import shared_task
 from django.core.mail import send_mail, EmailMessage
-from app.app import settings
+from app import settings
 from datetime import datetime
 import random
 import glob
