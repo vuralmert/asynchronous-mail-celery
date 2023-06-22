@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_celery_results',
+    'django_celery_beat',
     'send_mail',
 ]
 
@@ -99,6 +100,16 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Europe/Istanbul'
 CELERY_RESULT_BACKEND = 'django-db'
+
+# Celery Beat Settings
+
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+CELERY_BEAT_SCHEDULE = {
+    'send-scheduled-mail': {
+        'task': 'send_mail.tasks.schedule_mail_func',
+        'schedule': 300.0,
+    }
+}
 
 # SMTP Settings
 
