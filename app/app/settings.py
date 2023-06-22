@@ -107,8 +107,8 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 CELERY_BEAT_SCHEDULE = {
     'send-scheduled-mail': {
-        'task': 'send_mail.tasks.schedule_mail_func',
-        'schedule': 300.0,
+        'task': 'app.send_mail.tasks.schedule_mail_func',
+        'schedule': 60.0,
     }
 }
 
