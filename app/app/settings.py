@@ -100,6 +100,16 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Europe/Istanbul'
 CELERY_RESULT_BACKEND = 'django-db'
 
+# SMTP Settings
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = env('MAIL_USE_TLS')
+EMAIL_HOST = env('MAIL_HOST')
+EMAIL_PORT = env('MAIL_PORT')
+EMAIL_HOST_USER = env('MAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('MAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_MAIL')
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
