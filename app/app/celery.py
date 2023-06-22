@@ -10,6 +10,11 @@ app = Celery('app')
 app.conf.enable_utc = False
 app.conf.update(timezone='Europe/Istanbul')
 
+app.conf.update(
+    FLOWER_HOST='localhost',
+    FLOWER_PORT=5555,
+)
+
 app.config_from_object(settings, namespace='CELERY')
 
 app.autodiscover_tasks()

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_celery_results',
     'django_celery_beat',
     'send_mail',
+    'flower',
 ]
 
 MIDDLEWARE = [
@@ -110,6 +111,11 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': 300.0,
     }
 }
+
+# Flower Settings
+
+FLOWER_ADDRESS = 'localhost'
+FLOWER_PORT = 5555
 
 # SMTP Settings
 
