@@ -107,8 +107,8 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 CELERY_BEAT_SCHEDULE = {
     'send-scheduled-mail': {
-        'task': 'app.send_mail.tasks.schedule_mail_func',
-        'schedule': 60.0,
+        'task': 'send_mail.tasks.schedule_mail_func',
+        'schedule': 300.0,
     }
 }
 
@@ -163,7 +163,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# Attachements
+# Attachments
 
 ATTACHMENT_DIR = os.path.join(BASE_DIR, 'attachments')
 
