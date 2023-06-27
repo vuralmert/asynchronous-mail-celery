@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_celery_beat',
     'send_mail',
     'flower',
+    'app',
 ]
 
 MIDDLEWARE = [
