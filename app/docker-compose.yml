@@ -14,6 +14,9 @@ services:
       - worker
       - beat
       - flower
+    networks:
+      - django_network
+
   worker:
     build:
       context: .
@@ -23,6 +26,9 @@ services:
       - .env
     depends_on:
       - redis
+    networks:
+      - django_network
+
   beat:
     build:
       context: .
@@ -32,6 +38,9 @@ services:
       - .env
     depends_on:
       - redis
+    networks:
+      - django_network
+
   flower:
     build:
       context: .
@@ -43,11 +52,28 @@ services:
       - '5555:5555'
     depends_on:
       - redis
+    networks:
+      - django_network
+
   redis:
     image: redis
+    networks:
+      - django_network
+
   db:
     image: postgres
+    env_file:
+      - .env
     environment:
       - POSTGRES_DB=${DATABASE_NAME}
       - POSTGRES_USER=${DATABASE_USER}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    ports:
+      - '5432:5432'
+    networks:
+      - django_network
+
+networks:
+  django_network:
+    external: true
+    driver: bridge
