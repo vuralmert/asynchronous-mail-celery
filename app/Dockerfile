@@ -20,6 +20,11 @@ COPY . .
 # Expose the application port
 EXPOSE 8000
 
-# Run the Django application
+# Run migrations and create superuser on container startup
+RUN python manage.py makemigrations
+RUN python manage.py migrate
+RUN python manage.py initadmin
+RUN python manage.py inituser
 
+# Run the Django application
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
