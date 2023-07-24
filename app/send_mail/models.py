@@ -7,7 +7,7 @@ class StoredEmail(models.Model):
     from_email = models.EmailField()
     to_email = models.EmailField()
     cc_email = models.TextField(blank=True)
-    attachment = models.FileField(upload_to='attachments/', blank=True)
+    attachment = models.FileField(upload_to='media/', blank=True)
     sent_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

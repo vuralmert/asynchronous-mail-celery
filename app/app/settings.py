@@ -164,6 +164,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+# Media files (Uploads)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Attachments
 
 ATTACHMENT_DIR = os.path.join(BASE_DIR, 'attachments')
