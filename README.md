@@ -46,7 +46,7 @@ to the page that you can see all of your apis and schemas.</p>
 <li><code>GET     /sent_mails</code>
 <li><code>GET     /schedule_mail</code>
 </ul>
-<h2>Used Techonologies</h2>
+<h2>Used Technologies</h2>
 <ul>
 <li>Python
 <li>Django
